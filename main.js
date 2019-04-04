@@ -72,10 +72,10 @@ function startGame() {
     // Clears the wrong guesses from the previous round
     document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
  
-}
+};
 
 // It's where we will do all of the comparisons for matches
-function checkLetters(letter) {
+function checkLetter(letter) {
 
     //This boolean will be toggled based on whether or not a user letter is found in the word
     var letterInWord = false;
@@ -121,7 +121,7 @@ function checkLetters(letter) {
         numGuesses--;
 
     }
-}
+};
 
 // Here we will have all of the code that needs to be run after each guess is made
 function roundComplete() {
@@ -167,4 +167,25 @@ function roundComplete() {
         startGame();
     }
 
-}
+};
+
+
+// MAIN PROCESS (This is the code that controls what is actually run)
+//----------------------------------------------------------------------------
+
+// Starts the Game
+startGame();
+
+// Then initiate the function for capturing key clicks
+document.onkeyup = function(event) {
+
+    //Converts all key clicks to lowercase letters
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase
+
+    // Run the code to check for correctness
+    checkLetter(letterGuessed);
+
+    // Runs the code after each round is done
+    roundComplete();
+
+};

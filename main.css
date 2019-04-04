@@ -1,0 +1,22 @@
+* {
+    text-align: center;
+}
+
+img {
+    height: 50%;
+    width: 50%;
+}
+
+h1 {
+    color: black;
+    font-family: cursive;
+}
+
+h2 {
+    color: red;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: lightgreen;
+}
