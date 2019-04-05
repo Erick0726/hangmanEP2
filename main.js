@@ -2,7 +2,7 @@
 // --------------------------------------------------------------
 
 // Array of Word Options (all lowercase)
-var wordsList = ["Pokemon", "Persona", "Portal"];
+var wordsList = ["mario", "uncharted","halo"];
 
 // Solution will be held here
 var chosenWord = "";
@@ -72,15 +72,15 @@ function startGame() {
     // Clears the wrong guesses from the previous round
     document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
  
-};
+}
 
 // It's where we will do all of the comparisons for matches
-function checkLetter(letter) {
+function checkLetters(letter) {
 
     //This boolean will be toggled based on whether or not a user letter is found in the word
     var letterInWord = false;
 
-    // Chekck if a letter exists inside the array at all
+    // Check if a letter exists inside the array at all
     for (var i = 0; i < numBlanks; i++) {
 
         if (chosenWord[i] === letter) {
@@ -121,7 +121,7 @@ function checkLetter(letter) {
         numGuesses--;
 
     }
-};
+}
 
 // Here we will have all of the code that needs to be run after each guess is made
 function roundComplete() {
@@ -133,7 +133,7 @@ function roundComplete() {
     document.getElementById("guesses-left").innerHTML = numGuesses;
 
     // This will print the wrong guesses onto the page
-    document.getElementById("word-blank").innerHTML = blanksAndSuccesses.join(" ");
+    document.getElementById("word-blanks").innerHTML = blanksAndSuccesses.join(" ");
 
     // This will print the wrong guesses onto the page
     document.getElementById("wrong-guesses").innerHTML = wrongGuesses.join(" ");
@@ -143,11 +143,16 @@ function roundComplete() {
 
         //...add to the win counter and give the user an alert
         winCounter++;
-        alert("You win!");
+        
+        setTimeout(function(){
+            alert("You win!");
+        }, 100);
 
         // Update the win counter in the HTML and restart the game
-        document.getElementById("win-counter").innerHTML = winCounter;
+        setTimeout(function(){
+            document.getElementById("win-counter").innerHTML = winCounter;
         startGame();
+        }, 1000);
 
     } 
 
@@ -167,23 +172,23 @@ function roundComplete() {
         startGame();
     }
 
-};
+}
 
 
 // MAIN PROCESS (This is the code that controls what is actually run)
-//----------------------------------------------------------------------------
+// ---------------------------------------------------------------------------
 
 // Starts the Game
 startGame();
 
-// Then initiate the function for capturing key clicks
+// Initiate the function for capturing key clicks
 document.onkeyup = function(event) {
 
-    //Converts all key clicks to lowercase letters
-    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase
+    // Converts all key clicks to lowercase letters
+    var letterGuessed = String.fromCharCode(event.keyCode).toLowerCase();
 
-    // Run the code to check for correctness
-    checkLetter(letterGuessed);
+    // Runs the code to check for correctness
+    checkLetters(letterGuessed);
 
     // Runs the code after each round is done
     roundComplete();

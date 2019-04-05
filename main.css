@@ -8,15 +8,19 @@ img {
 }
 
 h1 {
-    color: black;
-    font-family: cursive;
+    color: #b92e34;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 h2 {
-    color: red;
+    color: #4d4dff;
     font-family: 'Times New Roman', Times, serif;
 }
 
+h3 {
+    color: #39ff14;
+}
+
 body {
-    background-color: lightgreen;
+    background-color: #bc13fe;
 }
